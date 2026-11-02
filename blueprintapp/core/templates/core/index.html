@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2>Panel de anuncios</h2>
+            <p class="text-muted">
+                Bienvenido al sistema de publicación de anuncios.
+            </p>
+        </div>
+
+        <a href="{{ url_for('bp_anuncio.create') }}" class="btn btn-primary">
+            + Publicar anuncio
+        </a>
+
+    </div>
+
+
+    <!-- ESTADÍSTICAS -->
+
+    <div class="row mb-4">
+
+        <div class="col-md-4 mb-3">
+            <div class="card bg-primary text-white shadow-sm">
+                <div class="card-body">
+                    <h6>Total de anuncios</h6>
+                    <h2>{{ total_anuncios }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card bg-success text-white shadow-sm">
+                <div class="card-body">
+                    <h6>Usuarios registrados</h6>
+                    <h2>{{ total_usuarios }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card bg-warning text-dark shadow-sm">
+                <div class="card-body">
+                    <h6>Categorías registradas</h6>
+                    <h2>{{ total_categorias }}</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    
+
+
+    
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Editar usuario</h1>
+
+<form action="{{ url_for('bp_usuario.edit', id=usuario.id) }}" method="POST">
+
+    <div class="mb-3">
+
+        <label>Nombre:</label>
+
+        <input type="text" name="nombre" value="{{ usuario.nombre }}" class="form-control" required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Correo:</label>
+
+        <input type="email" name="email" value="{{ usuario.email }}" class="form-control" required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Nueva contraseña:</label>
+
+        <input type="password" name="password" class="form-control" minlength="6">
+
+        <small>Deja vacío si no deseas cambiarla.</small>
+
+    </div>
+
+    <input type="submit" value="Actualizar" class="btn btn-primary">
+
+    <a href="{{ url_for('bp_usuario.index') }}" class="btn btn-secondary">
+
+        Cancelar
+
+    </a>
+
+</form>
+
+{% endblock %}

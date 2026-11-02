@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-5">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-dark text-white">
+
+                <h3>Iniciar sesión</h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <form action="{{ url_for('bp_auth.login') }}" method="POST">
+
+                    <div class="mb-3">
+
+                        <label>Correo electrónico:</label>
+
+                        <input type="email"name="email"class="form-control" required>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label>Contraseña:</label>
+
+                        <input type="password" name="password" class="form-control" required>
+
+                    </div>
+
+                    <input type="submit"value="Ingresar" class="btn btn-primary">
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-header bg-warning">
+                <h4 class="mb-0">Editar anuncio</h4>
+            </div>
+
+            <div class="card-body">
+
+                <form action="{{ url_for('bp_anuncio.edit', id=anuncio.id) }}" method="POST">
+
+                    <div class="mb-3">
+                        <label class="form-label">Título:</label>
+
+                        <input type="text" name="titulo" value="{{ anuncio.titulo }}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Descripción:</label>
+
+                        <textarea name="descripcion" class="form-control" rows="4" required>{{ anuncio.descripcion }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Ubicación:</label>
+
+                        <input type="text" name="ubicacion" value="{{ anuncio.ubicacion }}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Contacto:</label>
+
+                        <input type="text" name="contacto" value="{{ anuncio.contacto }}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Categoría:</label>
+
+                        <select name="categoria_id" class="form-select" required>
+
+                            {% for item in categorias %}
+
+                            <option value="{{ item.id }}"
+                                {% if item.id == anuncio.categoria_id %}
+                                    selected
+                                {% endif %}>
+
+                                {{ item.nombre }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Actualizar anuncio
+                    </button>
+
+                    <a href="{{ url_for('bp_anuncio.index') }}" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
